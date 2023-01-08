@@ -90,22 +90,21 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let lowerInput, upperInput, numbersInput, specialInput;
-  let passwordOptions = { // and object to store user choices
-    length: 1,
+  let userChoices = { // and object to store user choices
+    length: 0,
     lower: false,
     upper: false,
     numbers: false,
     special: false,
   };
   
-  while (passwordOptions.length < 10 || passwordOptions.length >64 || isNaN(passwordOptions.length)) { //password lengh
-    passwordOptions.length = prompt("Length of password?");
-    passwordOptions.length = Number(passwordOptions.length);
-    if (passwordOptions.length < 10 || passwordOptions.length >64 || isNaN(passwordOptions.length)) {
+  while (userChoices.length < 10 || userChoices.length >64 || isNaN(userChoices.length)) { //password lengh
+    userChoices.length = prompt("Length of password?");
+    userChoices.length = Number(userChoices.length);
+    if (userChoices.length < 10 || userChoices.length >64 || isNaN(userChoices.length)) {
       alert("Please introduce a valid number between 10 and 64");
     } else {
-      console.log("Required Lenght:" + passwordOptions.length);
+      console.log("Required Lenght:" + userChoices.length);
     }
   }
   
@@ -125,75 +124,68 @@ function getPasswordOptions() {
     }
   }
 
-  lowerInput = prompt("Do you need Lowercases? (Y/N)");
-  while (validate(lowerInput) == false) {
+  userChoices.lower = prompt("Do you need Lowercases? (Y/N)");
+  while (validate(userChoices.lower) == false) {
     alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    lowerInput = prompt("Do you need Lowercases? (Y/N)");
-    console.log("lower" + lowerInput);
+    userChoices.lower = prompt("Do you need Lowercases? (Y/N)");
   }
-  passwordOptions.lower = evaluate(lowerInput);
+  userChoices.lower = evaluate(userChoices.lower);
 
-  upperInput = prompt("Do you need Uppercases? (Y/N)");
-  while (validate(upperInput) == false) {
+  userChoices.upper = prompt("Do you need Uppercases? (Y/N)");
+  while (validate(userChoices.upper) == false) {
     alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    upperInput = prompt("Do you need Uppercases? (Y/N)");
-    console.log("upper" + upperInput);
+    userChoices.upper = prompt("Do you need Uppercases? (Y/N)");
   }
-  passwordOptions.upper = evaluate(upperInput);
+  userChoices.upper = evaluate(userChoices.upper);
 
-  numbersInput = (prompt("Do you need numbers? (Y/N)"));
-  while (validate(numbersInput) == false) {
+  userChoices.numbers = (prompt("Do you need numbers? (Y/N)"));
+  while (validate(userChoices.numbers) == false) {
     alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    numbersInput = (prompt("Do you need numbers? (Y/N)"));
-    console.log("numbers" + numbersInput);
+    userChoices.numbers = (prompt("Do you need numbers? (Y/N)"));
   }
-  passwordOptions.numbers = evaluate(numbersInput)
+  userChoices.numbers = evaluate(userChoices.numbers)
 
-  specialInput = prompt("Do you need Special Characters? (Y/N)");
-  while (validate(upperInput) == false) {
+  userChoices.special = prompt("Do you need Special Characters? (Y/N)");
+  while (validate(userChoices.special) == false) {
     alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    specialInput = prompt("Do you need Special Characters? (Y/N)");
-    console.log("special" + specialInput);
+    userChoices.special = prompt("Do you need Special Characters? (Y/N)");
   }
-  passwordOptions.special = evaluate(specialInput);
+  userChoices.special = evaluate(userChoices.special);
 
   // In the case that the user don't choose any character set
-  while (passwordOptions.lower == false && passwordOptions.upper == false && passwordOptions.numbers == false && passwordOptions.special == false) {
+  while (userChoices.lower == false && userChoices.upper == false && userChoices.numbers == false && userChoices.special == false) {
     alert("At least one set of characters has to be used to generate the password.");
-    lowerInput = prompt("Do you need Lowercases? (Y/N)");
-  while (validate(lowerInput) == false) {
-    alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    lowerInput = prompt("Do you need Lowercases? (Y/N)");
-    console.log("lower" + lowerInput);
-  }
-  passwordOptions.lower = evaluate(lowerInput);
+    userChoices.lower = prompt("Do you need Lowercases? (Y/N)");
+    while (validate(userChoices.lower) == false) {
+      alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
+      userChoices.lower = prompt("Do you need Lowercases? (Y/N)");
+    }
+    userChoices.lower = evaluate(userChoices.lower);
 
-  upperInput = prompt("Do you need Uppercases? (Y/N)");
-  while (validate(upperInput) == false) {
-    alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    upperInput = prompt("Do you need Uppercases? (Y/N)");
-    console.log("upper" + upperInput);
-  }
-  passwordOptions.upper = evaluate(upperInput);
+    userChoices.upper = prompt("Do you need Uppercases? (Y/N)");
+    while (validate(userChoices.upper) == false) {
+      alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
+      userChoices.upper = prompt("Do you need Uppercases? (Y/N)");
+    }
+    userChoices.upper = evaluate(userChoices.upper);
 
-  numbersInput = (prompt("Do you need numbers? (Y/N)"));
-  while (validate(numbersInput) == false) {
-    alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    numbersInput = (prompt("Do you need numbers? (Y/N)"));
-    console.log("numbers" + numbersInput);
-  }
-  passwordOptions.numbers = evaluate(numbersInput)
+    userChoices.numbers = (prompt("Do you need numbers? (Y/N)"));
+    while (validate(userChoices.numbers) == false) {
+      alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
+      userChoices.numbers = (prompt("Do you need numbers? (Y/N)"));
+    }
+    userChoices.numbers = evaluate(userChoices.numbers)
 
-  specialInput = prompt("Do you need Special Characters? (Y/N)");
-  while (validate(upperInput) == false) {
-    alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
-    specialInput = prompt("Do you need Special Characters? (Y/N)");
-    console.log("special" + specialInput);
-  }
-  passwordOptions.special = evaluate(specialInput);
+    userChoices.special = prompt("Do you need Special Characters? (Y/N)");
+    while (validate(userChoices.special) == false) {
+      alert("That is not a valid answer, please use Y or N in your keyboard to answer. (Your answer is not case sensitive)");
+      userChoices.special = prompt("Do you need Special Characters? (Y/N)");
+    }
+    userChoices.special = evaluate(userChoices.special);
   }
 
-  return passwordOptions
+  return userChoices
+
 }
 
 // Get references to the #generate element
@@ -216,32 +208,32 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
-  passwordOptions = getPasswordOptions();
-  console.log(passwordOptions);
+  userChoices = getPasswordOptions();
+  console.log(userChoices);
   let userCharSet = [] // An array with the set of characters chosen by the user.
   let password = ""
 
-  if (passwordOptions.lower == true) {
+  if (userChoices.lower == true) {
     userCharSet.push(...lowerCasedCharacters); // We add lowercase to user char set
-    password += getRandom(lowerCasedCharacters); // We guarantee at least one lower case in the password
+    password += getRandom(lowerCasedCharacters); // We guarantee at least one lowercase in the password
   }
 
-  if (passwordOptions.upper == true) {
+  if (userChoices.upper == true) {
     userCharSet.push(...upperCasedCharacters);
     password += getRandom(upperCasedCharacters);
   }
 
-  if (passwordOptions.numbers ==true) {
+  if (userChoices.numbers ==true) {
     userCharSet.push(...numericCharacters);
     password += getRandom(numericCharacters);
   }
 
-  if (passwordOptions.special == true) {
+  if (userChoices.special == true) {
     userCharSet.push(...specialCharacters);
     password += getRandom(specialCharacters);
   }
 
-  let missingCharacters = passwordOptions.length - password.length; //We complete the password
+  let missingCharacters = userChoices.length - password.length; //We complete the password
 
   for (let index = 0; index < missingCharacters; index++) {
     password += getRandom(userCharSet);

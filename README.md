@@ -19,9 +19,9 @@ Pleae note that the password generated has to be between 10 and 54 characters an
 * Special characters (&*^...)
 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
+Screenshot:
 
-assets/images/screenshot.png
+![image](assets/images/05-javascript-challenge-demo.png)
 
 ## Credits
 
