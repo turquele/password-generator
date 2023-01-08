@@ -90,22 +90,21 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
-  let requiredLenght = 0, lowerInput, upperInput, numbersInput, specialInput;
-  let passwordOptions = { // and object with user options
-    length: 0,
+  let lowerInput, upperInput, numbersInput, specialInput;
+  let passwordOptions = { // and object to store user choices
+    length: 1,
     lower: false,
     upper: false,
     numbers: false,
     special: false,
   };
   
-  while (requiredLenght < 10 || requiredLenght >64 || isNaN(requiredLenght)) { //password lengh
-    requiredLenght = prompt("Length of password?");
-    requiredLenght = Number(requiredLenght)
-    if (requiredLenght < 10 || requiredLenght >64 || isNaN(requiredLenght)) {
+  while (passwordOptions.length < 10 || passwordOptions.length >64 || isNaN(passwordOptions.length)) { //password lengh
+    passwordOptions.length = prompt("Length of password?");
+    passwordOptions.length = Number(passwordOptions.length);
+    if (passwordOptions.length < 10 || passwordOptions.length >64 || isNaN(passwordOptions.length)) {
       alert("Please introduce a valid number between 10 and 64");
     } else {
-      passwordOptions.length = requiredLenght;
       console.log("Required Lenght:" + passwordOptions.length);
     }
   }
