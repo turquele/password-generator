@@ -3,7 +3,7 @@
 ## Description
 
 This project is a basic website to help any user to create a safe password.
-This project was developed mainly in javaScript an help me to advance in the knoledge of this lenguage.
+This project was developed mainly in javaScript with the intention of helping the developer to advance in the knowledge of javaScript .
 
 ## Installation
 
